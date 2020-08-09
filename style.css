@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+* {
+    box-sizing: border-box;
+    
+}
+html {
+    background-color: #1b262c;
+    color: snow;
+}
+body {
+    margin: 0 10rem;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+}
+
+.container {
+    width: 70%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+   
+}
+
+
+.header {
+    height:33vh;
+    width: 50%;
+    background:linear-gradient(to top left, rgba(14, 13, 13, 0.76), transparent),
+    url("back.jpg") 0% 60%, border-box;
+    position: relative;
+    border-radius: 6px;
+    margin: 1.8rem auto;
+}
+
+.header p {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  font-size: 1.2rem;
+  border-top: 1px solid #e7e7e7;
+  padding-top: 0.5rem;
+  text-transform: capitalize;
+  text-shadow: 3px 3px #1b262c ;
+}
+
+.main {
+    width: 60%;   
+}
+.list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.list li {
+    flex: 1;
+    text-align: center;
+    width: 80%;
+    display: flex;
+    padding: 0.2rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    color: black;
+    font-weight: 500;
+    background: #e43c3c;
+    border-radius: 6px;
+    margin: 0.5rem auto;
+}
+
+
+.list p {
+    font-size: 1.2rem;
+    padding: 0.2rem 0.5rem;
+    margin-left: .5rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+}
+
+.check-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: snow;
+    outline: none;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: black;
+    outline: none;
+}
+
+.check-btn:hover {
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+}
+
+
+
+.list li:nth-child(even) {
+    background-color: #0f4c75;
+    color: snow;
+}
+
+
+.add {
+    width: 60%;
+    text-align: center;
+    margin: 1.8rem auto;
+}
+.add input[type="text"] {
+    
+    width: 60%;
+    border: none;
+    background: #fff;
+    padding: 0.8rem 0.4rem;
+    margin-right: 1rem;
+    border: 1px solid #787878;
+    border-radius: 6px;
+    outline: none;
+    font: inherit;
+    transition: border 0.3s;
+    vertical-align: middle;
+}
+
+.add input[type="text"]:focus {
+    border: 1px solid #00b7c2;
+    transition: border 0.3s;
+    outline: none;
+}
+.add button {
+    border: none;
+    background: none;
+    color: teal;
+    font-size: 2.5rem;
+    outline: none;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
