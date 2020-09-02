@@ -13,10 +13,10 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
+    min-width: 60rem;
 }
 
 .container {
-    width: 70%;
     height: 100%;
     margin: 0 auto;
     display: flex;
@@ -63,9 +63,8 @@ body {
 
 
 .list li {
-    flex: 1;
     text-align: center;
-    width: 80%;
+    width: 85%;
     display: flex;
     padding: 0.2rem 1rem;
     align-items: center;
@@ -78,9 +77,9 @@ body {
 }
 
 
-.list p {
-    font-size: 1.2rem;
-    padding: 0.2rem 0.5rem;
+.list span {
+    font-size: 1rem;
+    padding: 1rem;
     margin-left: .5rem;
     margin-right: 0.5rem;
     border-radius: 4px;
@@ -119,13 +118,14 @@ body {
 
 
 .add {
-    width: 60%;
-    text-align: center;
-    margin: 1.8rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
 }
 .add input[type="text"] {
     
-    width: 60%;
+    width: 100%;
     border: none;
     background: #fff;
     padding: 0.8rem 0.4rem;
@@ -153,3 +153,10 @@ body {
     vertical-align: middle;
 }
 
+.removeTaskcolor {
+    color: teal;
+}
+
+.removeTasktext {
+    text-decoration: line-through;
+}

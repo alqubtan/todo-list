@@ -21,7 +21,8 @@ const controller = (function() {
             return item;
         },
         deleteItem: function(id) {
-            allItems.splice(id, 1);
+            var id = allItems.findIndex(obj => obj.id === id)
+            allItems.splice(id, 1)
         },
         test: function() {
             console.log(allItems)
@@ -35,9 +36,9 @@ const UIcontroller = (function() {
     return {
         displayItem: function(obj) {
             var html;
-            html = `<li id="item-${obj.id}"><button class="check-btn" title="mark as completed">
+            html = `<li id="item-${obj.id}" class="item-id"><button class="check-btn" title="mark as completed">
             <i class="fa fa-check-square"></i></button>
-             <p>${obj.content}</p>
+             <span>${obj.content}</span>
              <button class="delete-btn" title="delete"><i class="fa fa-trash"></i>
              </button></li>`;
 
@@ -64,16 +65,22 @@ const app = (function(ui, ctrl) {
             }
         })
         
-        // mark as completed task listener
-        document.querySelector('.list').addEventListener('click', markAsComplete);
-        // delete task listener
-        document.querySelector('.list').addEventListener('click', deleteItem);
+        document.querySelector('.list').addEventListener('click', e => {
+            const id = e.target.closest('.item-id').id;
+            if (id) {
+                if (e.target.matches('.check-btn, .check-btn *')) {
+                    markAsComplete(id)
+                } else if (e.target.matches('.delete-btn , .delete-btn *')) {
+                    deleteItem(id)
+                }
+            }
+        } );
     }
 
-    var deleteItem = function(e) {
-        var id = e.target.parentNode.parentNode.id;
+    var deleteItem = function(id) {
+        
         // check if the element that has been clicked is the delete icon;
-        if (id && e.toElement.className === "fa fa-trash") {
+        if (id) {
             // 1- delete item from DS
 
             // split ID
@@ -87,25 +94,19 @@ const app = (function(ui, ctrl) {
 
         }
     }
-    var markAsComplete = function(e) {
-        // check if the element that has been clicked is the check icon;
-        var id = e.target.parentNode.parentNode.id;
+    var markAsComplete = function(id) {
         if (id) {
-            // check or uncheck the {icon}
-            check(e.target, id); 
+            var item = document.getElementById(id);
+            var switchBtn = item.childNodes[0];
+            var text = item.childNodes[2];
+
+            switchBtn.classList.toggle('removeTaskcolor');
+            text.classList.toggle('removeTasktext');
+
         }
     
     }
-    var check = function(target, id) {
-        var target = target;
-        var item = document.getElementById(id);
-        // switch text
-        item.style.textDecoration === 'line-through' ? item.style.textDecoration = 'none' :
-        item.style.textDecoration = "line-through";
-        // switch color
-        target.style.color === 'teal' ? target.style.color = 'snow' : target.style.color = 'teal';
 
-    }
     var ctrAddItem = function() {
         // get input from user
         var input = document.querySelector('.item-cnt').value;
